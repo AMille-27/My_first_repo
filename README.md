@@ -1,2 +1,3 @@
 # My_first_repo
-Working along side the video
+Working alongside the video
+I'm so excited about being a **Data Scientist**.
