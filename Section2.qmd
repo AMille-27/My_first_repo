@@ -4,6 +4,7 @@ format: html
 editor: visual
 ---
 
+# Vectors
 Create a vector, 30 random values from a uniform distribution 
 ```{r}
 set.seed(42)
@@ -26,4 +27,65 @@ Create a vector with strings in it.
 char_vec<-c('dar', "adf", "E2", '13da')
 sort(char_vec)
 ```
+
+
+
+
+
+
+# Data Frames 
+2D rows and columns, we want columns that are all the same types. We need to subset $ identify columns but square brackets are good. 
+
+```{r}
+data(trees)
+trees
+str(trees)
+```
+
+Subset a column
+```{r}
+trees$Height
+```
+Get attributes from the data fame
+```{r}
+attributes(trees)
+names(trees)
+colnames(trees)[2:3] #subset of second and third elements
+```
+#List 
+Investigating data frame from before
+```{r}
+is.list(trees) #is this a list?
+is.data.frame(trees) #is this a data frame
+```
+Can subset as a list returns column 1 or returns 1 and 2 columns
+```{r}
+trees[1] #return first column
+trees[[1]] #returns as a first column as a simplified vector only works 1 element
+trees [1:2] #returns as column 1 and 2
+```
+subsets but in a vector
+```{r}
+trees[[1]]
+```
+Look at linear model fit
+```{r}
+fit <- lm (Volume ~ Height + Girth, data = trees) #fit store in linear model volume as a function of height and girth 2 effects equivalent to doing str that is structure
+```
+
+Look at structure but restrict info:
+
+```{r}
+str(fit, max.level = 1) #only show the first level of structure
+```
+Some helper function exist 
+```{r}
+fit$coefficents #built to help find coefficient 
+coef(fit) #help functions allows more simply to grab coefficient
+fit$residuals
+residuals(fit)
+effects(fit)
+#no helper for rank : rank (fit)
+```
+
 
