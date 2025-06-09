@@ -25,3 +25,7 @@ read_fwf("https://www4.stat.ncsu.edu/online/datasets/cigarettes.txt",
 
 ```
 
+```{r}
+air_quality_data |>
+  select(-starts_with("..."))
+```
